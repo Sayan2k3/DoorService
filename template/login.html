@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} Login - Household Services {% endblock %}
+
+{% block content %}
+    <style>
+        /* Styles for the form container */
+        .form-container {
+            border: 2px solid #007bff; /* Blue border for the box */
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white; /* White background for the form */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        /* Adjusting the color of form labels */
+        .form-label {
+            color: #007bff; /* Blue label text for better visibility */
+        }
+        /* Change the color of input text */
+        .form-control {
+            background-color: #f8f9fa; /* Light gray background for input fields */
+            color: black; /* Black text for inputs */
+            border: 1px solid #ced4da; /* Default border color */
+        }
+        /* Placeholder color */
+        .form-control::placeholder {
+            color: #6c757d; /* Gray placeholder text color */
+        }
+        /* Change border color on focus */
+        .form-control:focus {
+            border-color: #007bff; /* Blue border on focus */
+            outline: none; /* Remove default outline */
+        }
+        /* Button styling */
+        .btn-primary {
+            background-color: #007bff; /* Blue button */
+            border-color: #007bff; /* Blue button border */
+        }
+    </style>
+
+    <div class="container-fluid row justify-content-center mt-3">
+        <div class="col-6">
+            <div class="form-container"> <!-- Blue border for the form -->
+                <h1 class="text-center">Login</h1>
+                <form action={{ url_for('login') }} method="post">
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group mb-3 mt-4">
+                        <button type="submit" class="btn btn-danger w-100">Login</button>
+                    </div>  
+                    <div class="form-group mb-3">
+                        <span> Create an account </span><a href="{{ url_for('register') }}">Register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
